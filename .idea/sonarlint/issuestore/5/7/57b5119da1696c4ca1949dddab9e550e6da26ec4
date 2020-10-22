@@ -1,0 +1,9 @@
+
+Y
+java:S1874ˆ"6Remove this use of "toLocaleString"; it is deprecated.( å’æşÿÿÿÿ8Ñğ”×Ô.
+w	java:S116!"VRename this field "Appointment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¾€æıÿÿÿÿ8à¨ÇÎÔ.
+c	java:S107>"BConstructor has 11 parameters, which is greater than 7 authorized.(¢•û·úÿÿÿÿ8™‘ÖÎÔ.
+R
+java:S1172>"0Remove this unused method parameter "visitorid".(¢•û·úÿÿÿÿ8ªø¸ÔÔ.
+Y
+java:S1874›"6Remove this use of "toLocaleString"; it is deprecated.(öäÀÄûÿÿÿÿ8Å˜—×Ô.

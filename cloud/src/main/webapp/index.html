@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>云盘项目</title>
+
+    <!--引入css文件-->
+    <link  type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link  type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-table.min.css"/>
+    <link  type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/>
+    <link  type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-editable.css"/>
+
+    <!--引入js文件-->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.serializejson.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap-table-editable.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+    <!--所有的页面要显示的元素必须放在container的div中-->
+    <div class="container">
+        <!--定义页头-->
+        <div class="page-header">
+            <h1>智游网盘 <small id="small_name">云盘系统</small></h1>
+        </div>
+        <!--按钮组-->
+        <div class="btn-group" role="group"  id="toolbar" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-default"
+                    data-toggle="modal" data-target="#create_modal">创建文件夹</button>
+            <button type="button" class="btn btn-default"
+                    data-toggle="modal" data-target="#upload_modal">文件上传</button>
+            <button type="button" class="btn btn-default" onclick="deleteChoose();">删除选中</button>
+            <button type="button" class="btn btn-default"
+                    onclick="directoryBack()">后退一步</button>
+            <button type="button" class="btn btn-default"
+                    onclick="logout()">登出</button>
+            <span id="uname_span" style="float:right;margin-left:700px;"></span>
+        </div>
+        <!--定义表格-->
+        <table class="table"  id="tab">
+
+        </table>
+    </div>
+    <!--登陆模态框-->
+    <div class="modal fade" id="login_modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">用户登陆</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="login_form">
+                        <div class="form-group">
+                            <label class="control-label">用户名称:</label>
+                            <input type="text" class="form-control" name="uname" value="韩梅梅">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">用户密码:</label>
+                            <input type="password" class="form-control" name="upwd" value="123">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">重填</button>
+                    <button type="button" class="btn btn-primary" onclick="login();">登陆</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--创建文件夹模态框-->
+    <div class="modal fade" id="create_modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="create_form">
+                        <div class="form-group">
+                            <label class="control-label">文件夹名字:</label>
+                            <input type="text" class="form-control" name="dname">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">重填</button>
+                    <button type="button" class="btn btn-primary" onclick="createMyDirectory();">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--文件上传的模态框-->
+    <div class="modal fade" id="upload_modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">文件上传</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="upload_form">
+                        <div class="form-group">
+                            <label class="control-label">文件名字:</label>
+                            <input type="text" class="form-control" name="dname">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">选择文件:</label>
+                            <input type="file" class="form-control" name="fileInput">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">重填</button>
+                    <button type="button" class="btn btn-primary" onclick="uploadMyFile();">上传</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

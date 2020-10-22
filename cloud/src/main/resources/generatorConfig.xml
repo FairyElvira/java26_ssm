@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 一个数据库一个context -->
+    <context id="infoGuardian">
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/><!-- 生成代码的时候是否生成注释，true是取消注释，false会生成注释 -->
+            <property name="suppressDate" value="true"/> <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/db_26_cloud" userId="root"
+                        password="123456"/>
+
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!-- 默认为false,可以把数据库中的decimal以及numeric类型解析为Integer，为true时会解析为java.math.BigDecimal） -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成实体类地址 -->
+        <javaModelGenerator targetPackage="com.zhiyou100.entity"
+                            targetProject="cloud\src\main\java">
+            <!-- 是否在当前路径下新加一层schema,
+如果为fase路径com.shop.pojo， 为true:com.shop.pojo.[schemaName]  这个情况主要是oracle中有，mysql中没有schema -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成mapxml文件 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="cloud\src\main\resources">
+            <!-- 是否在当前路径下新加一层schema,
+如果为fase路径com.shop.dao.mapper， 为true:com.shop.dao.mapper.[schemaName]  这个情况主要是oracle中有，mysql中没有schema -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 生成mapxml对应client，也就是接口dao -->
+        <javaClientGenerator targetPackage="com.zhiyou100.dao"
+                             targetProject="cloud\src\main\java" type="XMLMAPPER">
+            <!-- 是否在当前路径下新加一层schema,
+如果为fase路径com.shop.dao.mapper， 为true:com.shop.dao.mapper.[schemaName]  这个情况主要是oracle中有，mysql中没有schema -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 配置表信息 -->
+        <table schema="" tableName="tab_user"
+               domainObjectName="User" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+        <table schema="" tableName="tab_directory"
+               domainObjectName="MyDirectory" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+        <table schema="" tableName="tab_file"
+               domainObjectName="MyFile" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+    </context>
+</generatorConfiguration>

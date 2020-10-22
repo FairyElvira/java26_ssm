@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="school" />
+        <module name="crowdfunding" />
+        <module name="cloud" />
+        <module name="test05_springboot" />
+        <module name="test04_springboot" />
+        <module name="school_ssh" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud" target="1.7" />
+      <module name="crowdfunding" target="1.7" />
+      <module name="java26_ssm" target="1.5" />
+      <module name="school" target="1.8" />
+      <module name="school_ssh" target="1.8" />
+      <module name="test04_springboot" target="8" />
+      <module name="test05_springboot" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="school" options="-parameters" />
+      <module name="school_ssh" options="-parameters" />
+      <module name="test04_springboot" options="-parameters" />
+      <module name="test05_springboot" options="-parameters" />
+    </option>
+  </component>
+</project>

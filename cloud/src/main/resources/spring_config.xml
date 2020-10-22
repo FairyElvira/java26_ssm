@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!-- 1 引入必须标签的命名空间 及其xsd文件 -->
+    <!-- 读取db.properties  声明变量-->
+    <context:property-placeholder location="classpath:db.properties"/>
+
+
+    <!-- 2 定义数据源bean:dataSource -->
+    <bean id="scource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.pwd}"/>
+        <!--druid连接池不需要指定driver-->
+        <!-- 初始连接数 -->
+        <property name="initialSize" value="1"/>
+        <!-- 最大连接数 -->
+        <property name="maxActive" value="10"/>
+        <!-- 最小活跃连接数 -->
+        <property name="minIdle" value="2"/>
+        <!-- 超时时间 -->
+        <property name="maxWait" value="6000"/>
+    </bean>
+
+    <!-- 3 定义sqlsession工厂bean:sqlsessionfactory -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 指定数据源 -->
+        <property name="dataSource" ref="scource"/>
+        <!-- 指定sql的映射文件的包-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+
+        <!-- 引入mybatis的核心配置文件 -->
+        <property name="configLocation" value="classpath:mybatis_config.xml"/>
+    </bean>
+
+    <!-- 4 定义事务管理bean -->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="scource"/>
+    </bean>
+
+    <!-- 5 扫描dao中的mapper接口 自动创建实现类对象-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zhiyou100.dao"/>
+    </bean>
+</beans>

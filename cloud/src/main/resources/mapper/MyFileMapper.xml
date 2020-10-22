@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyou100.dao.MyFileMapper">
+  <resultMap id="BaseResultMap" type="com.zhiyou100.entity.MyFile">
+    <id column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="furl" jdbcType="VARCHAR" property="furl" />
+    <result column="fsize" jdbcType="INTEGER" property="fsize" />
+    <result column="fmd5" jdbcType="VARCHAR" property="fmd5" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    fid, furl, fsize, fmd5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tab_file
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tab_file
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhiyou100.entity.MyFile">
+    insert into tab_file (fid, furl, fsize, 
+      fmd5)
+    values (#{fid,jdbcType=INTEGER}, #{furl,jdbcType=VARCHAR}, #{fsize,jdbcType=INTEGER}, 
+      #{fmd5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyou100.entity.MyFile">
+    insert into tab_file
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        fid,
+      </if>
+      <if test="furl != null">
+        furl,
+      </if>
+      <if test="fsize != null">
+        fsize,
+      </if>
+      <if test="fmd5 != null">
+        fmd5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="furl != null">
+        #{furl,jdbcType=VARCHAR},
+      </if>
+      <if test="fsize != null">
+        #{fsize,jdbcType=INTEGER},
+      </if>
+      <if test="fmd5 != null">
+        #{fmd5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyou100.entity.MyFile">
+    update tab_file
+    <set>
+      <if test="furl != null">
+        furl = #{furl,jdbcType=VARCHAR},
+      </if>
+      <if test="fsize != null">
+        fsize = #{fsize,jdbcType=INTEGER},
+      </if>
+      <if test="fmd5 != null">
+        fmd5 = #{fmd5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyou100.entity.MyFile">
+    update tab_file
+    set furl = #{furl,jdbcType=VARCHAR},
+      fsize = #{fsize,jdbcType=INTEGER},
+      fmd5 = #{fmd5,jdbcType=VARCHAR}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

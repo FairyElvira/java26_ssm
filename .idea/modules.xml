@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud/cloud.iml" filepath="$PROJECT_DIR$/cloud/cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfunding/crowdfunding.iml" filepath="$PROJECT_DIR$/crowdfunding/crowdfunding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java26_ssm.iml" filepath="$PROJECT_DIR$/java26_ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school/school.iml" filepath="$PROJECT_DIR$/school/school.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school_ssh/school_ssh.iml" filepath="$PROJECT_DIR$/school_ssh/school_ssh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test04_springboot/test04_springboot.iml" filepath="$PROJECT_DIR$/test04_springboot/test04_springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test05_springboot/test05_springboot.iml" filepath="$PROJECT_DIR$/test05_springboot/test05_springboot.iml" />
+    </modules>
+  </component>
+</project>
